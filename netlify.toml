@@ -1,0 +1,32 @@
+[build]
+  command = "pnpm build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20.18.0"
+  NPM_FLAGS = "--version"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[functions]
+  included_files = ["migrations/**"]
+
+# Uncomment to use this redirect for Single Page Applications like create-react-app.
+# [[redirects]]
+#   from = "/*"
+#   to = "/index.html"
+#   status = 200
+
+# The following redirect is intended for use with most SPAs that handle
+# routing internally.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  
+# Uncomment to show a custom 404 page for pages that don't exist
+# [[redirects]]
+#   from = "/*"
+#   to = "/404.html"
+#   status = 404
